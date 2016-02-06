@@ -1,0 +1,558 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Akademik Bilişim 2016 - GNU/Linux-Hurd Giriş Kursu" </title>
+    
+    
+    <style type="text/css">
+	@media only screen 
+	  and (min-width: 992px)
+	  and (max-width: 1199px) {
+	    body { font-size: 14pt; }
+            div.content { width: 96ex; margin: 0 auto; }
+        }
+	@media only screen 
+	  and (min-width: 768px)
+	  and (max-width: 991px) {
+            body { font-size: 14pt; }
+            div.content { width: 96ex; margin: 0 auto; }
+        }
+	@media only screen 
+	  and (min-width: 480px)
+	  and (max-width: 767px) {
+            body { font-size: 11pt; }
+            div.content { width: 96ex; margin: 0 auto; }
+        }
+	@media only screen 
+	  and (max-width: 479px) {
+            body { font-size: 8pt; }
+            div.content { width: 96ex; margin: 0 auto; }
+        }
+	@media only screen 
+	  and (min-device-width : 375px) 
+	  and (max-device-width : 667px) {
+            body { font-size: 9.5pt; }
+            div.content { width: 96ex; margin: 0 1px; }
+        }
+	@media only screen 
+	  and (min-device-width: 1200px) {
+            body { font-size: 10pt; margin: 0 4em; }
+            div.content { width: 96ex; margin: 0; }
+        }
+        h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+	    font-weight: bold;
+            line-height: 0pt;
+            display: inline;
+            white-space: pre;
+            font-family: monospace;
+            font-size: 1em;
+	    font-weight: bold;
+        }
+        pre {
+            font-size: 1em;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+	.pre {
+	    white-space: pre;
+	    font-family: monospace;
+	}
+	.header{
+	    font-weight: bold;
+	}
+        .newpage {
+            page-break-before: always;
+        }
+        .invisible {
+            text-decoration: none;
+            color: white;
+        }
+        a.selflink {
+          color: black;
+          text-decoration: none;
+        }
+        @media print {
+            body {
+                font-family: monospace;
+                font-size: 10.5pt;
+            }
+            h1, h2, h3, h4, h5, h6 {
+                font-size: 1em;
+            }
+        
+            a:link, a:visited {
+                color: inherit;
+                text-decoration: none;
+            }
+				
+            .noprint {
+                display: none;
+            }
+        }
+
+    </style>
+
+<span class="pre noprint docinfo">                                                                        </span><br />
+<span class="pre noprint docinfo">                                                                 Program</span><br />
+<span class="pre noprint docinfo">                                                                        </span><br />
+<pre>
+Akademik Bilişim                                        Barış Büyükakyol
+Yıl: 2016                                                    hackerspace
+Kurs: GNU/Linux-Hurd Giriş                                   Aralık 2015
+
+
+
+<h3>Özet</h3>
+
+	Bu belge Akademik Bilişim "GNU/Linux-Hurd Giriş Kursu" içeriği 
+	ve muhtemel işleyişi hakkında bilgi içermektedir.
+
+<h3>Amaç</h3>
+
+	Kursun amacı; katılımcıların masaüstü ortamlarında özgür 
+	bir işletim sistemi ve özgür araçlara göç etmelerini sağlamak, 
+	yine bu sistem ve araçları nitelikli bir şekilde kullanmalarına 
+	yardımcı olmaktır.   
+
+<h3>Hazırlık</h3>
+
+	Katılımcılar kurs öncesinde bilgisayarlarına Debian<sup><a href="#ref-1" style="text-decoration:none;">[1]</a></sup>(tercihen) veya 
+	Debian tabanlı<sup><a href="#ref-2" style="text-decoration:none;">[2]</a></sup> bir GNU/Linux-Hurd dağıtımı kurmuş olmalıdır.  
+
+<h3>Telif Hakkı</h3>
+
+	Tüm içerik <a href="https://www.gnu.org/licenses/fdl.html" style="text-decoration:none;">GNU Free Documentation License</a>(GNU Özgür Belgelendirme 
+	Lisansı) altındadır. 
+
+<h2>İçerik</h2>
+
+   <a href="#section-1">1</a>.  Gün 
+    <a href="#ceyrek-1.1">1.</a>  Çeyrek
+     <a href="#section-1.1">1.1</a>.  Özgür Yazılım Felsefesi
+     <a href="#section-1.2">1.2</a>.  Özgür Lisanslar
+     <a href="#section-1.3">1.3</a>.  GNU Projesi ve GNU/Linux'un Kısa Tarihi
+    <a href="#ceyrek-1.2">2.</a>  Çeyrek
+     <a href="#section-1.4">1.4</a>.  Dağıtımlar, Pencere Yöneticileri ve Masaüstü Ortamları
+       <a href="#section-1.4.1">1.4.1</a>.  Dağıtımlar
+       <a href="#section-1.4.2">1.4.2</a>.  Pencere Yöneticileri ve Masaüstü Ortamları
+       <a href="#section-1.4.3">1.4.3</a>.  Paket Yöneticileri
+      <a href="#ceyrek-1.3">3.</a>  Çeyrek
+     <a href="#section-1.5">1.5</a>.  Komut Yapısı
+     <a href="#section-1.6">1.6</a>.  Dosya ve Dizin Yapısı - Hiyerarşi
+       <a href="#section-1.6.1">1.6.1</a>.  Temel Komutlara Giriş
+      <a href="#ceyrek-1.4">4.</a>  Çeyrek
+     <a href="#section-1.7">1.7</a>.  Temel Komutlar
+     -------------------------------------------------------------------
+     <a href="#section-2">2</a>.  Gün 
+      <a href="#ceyrek-2.1">1.</a>  Çeyrek
+     <a href="#section-2.1">2.1</a>.  Temel Komutlar
+     <a href="#section-2.2">2.2</a>.  Mutlak Yol - Bağıl Yol
+     <a href="#section-2.3">2.3</a>.  Sembolik ve Sabit Bağlantılar
+      <a href="#ceyrek-2.2">2.</a>  Çeyrek
+     <a href="#section-2.4">2.4</a>.  Kullanıcı Hesapları - Grupları ve Erişim Hakları 
+       <a href="#section-2.4.1">2.4.1</a>.  Kullanıcı Hesapları - Grupları
+       <a href="#section-2.4.2">2.4.2</a>.  Erişim Hakları
+      <a href="#ceyrek-2.3">3.</a>  Çeyrek
+     <a href="#section-2.5">2.5</a>.  Arşivleme ve Sıkıştırma İşlemleri 
+       <a href="#section-2.5.1">2.5.1</a>.  Arşivleme
+       <a href="#section-2.5.2">2.5.2</a>.  Sıkıştırma 
+       <a href="#section-2.5.3">2.5.3</a>.  Arşivleme ve Sıkıştırma
+      <a href="#ceyrek-2.4">4.</a>  Çeyrek
+     <a href="#section-2.6">2.6</a>.  Bağlama İşlemi
+     <a href="#section-2.7">2.7</a>.  GNU Nano
+     -------------------------------------------------------------------
+     <a href="#section-3">3</a>.  Gün
+      <a href="#ceyrek-3.1">1.</a>  Çeyrek
+     <a href="#section-3.1">3.1</a>.  Süreçler ve Yönetimleri
+       <a href="#section-3.1.1">3.1.1</a>.  Süreçlerin Görüntülenmesi
+       <a href="#section-3.1.2">3.1.2</a>.  Süreçlerin Arkaplanda Çalıştırılması
+       <a href="#section-3.1.3">3.1.3</a>.  Süreçlerin Sona Erdirilmesi
+     <a href="#section-3.2">3.2</a>.  Kaynak Kodun Derlenmesi
+      <a href="#ceyrek-3.2">2.</a>  Çeyrek 
+     <a href="#section-3.3">3.3</a>.  Paketler ve Paket Yönetim Sistemi
+       <a href="#section-3.3.1">3.3.1</a>.  Paketler
+       <a href="#section-3.3.2">3.3.2</a>.  Paket Yönetim Aracı
+     <a href="#section-3.4">3.4</a>.  Güncelleme - Yükseltme - Yedekleme
+     <a href="#section-3.5">3.5</a>.  Yönlendirme İşlemi
+      <a href="#ceyrek-3.3">3.</a>  Çeyrek
+     <a href="#section-3.6">3.6</a>.  Zamanlanmış Görevler
+     <a href="#section-3.7">3.7</a>.  Arama ve Tarama İşlemleri
+      <a href="#ceyrek-3.4">4.</a>  Çeyrek
+     <a href="#section-3.8">3.8</a>.  Log Dosyaları
+     <a href="#section-3.9">3.9</a>.  Takma Adlar (Alias)
+     -------------------------------------------------------------------
+     <a href="#section-4">4</a>.  Gün
+      <a href="#ceyrek-4.1">1.</a>  Çeyrek
+     <a href="#section-4.1">4.1</a>.  Özel Kabuk Değişkenleri 
+     <a href="#section-4.2">4.2</a>.  Örnek Bir Kabuk İşlemi
+      <a href="#ceyrek-4.2">2.</a>.  Çeyrek
+     <a href="#section-4.3">4.3</a>.  Sed
+      <a href="#ceyrek-4.3">3.</a>  Çeyrek
+     <a href="#section-4.4">4.4</a>.  Komut Satırının Gücü
+      <a href="#ceyrek-4.4">4.</a>  Çeyrek
+     <a href="#section-4.5">4.5</a>.  İpuçları
+     -------------------------------------------------------------------
+     <a href="#referans">Referanslar</a>
+
+
+</pre>
+<hr class='noprint' style='width: 96ex;' align='left'/><!--NewPage--><pre class='newpage'><a name="page-2" id="page-2" href="#page-2" class="invisible"> </a>
+
+<span class="h2"><a class="selflink" name="section-1" href="#section-1">1</a>.  Gün</span>
+
+<span class="h2"><a class="selflink" name="ceyrek-1.1" href="#ceyrek-1.1">1</a>.  Çeyrek</span>
+
+<span class="h3"><a class="selflink" name="section-1.1" href="#section-1.1">1.1</a>.   Özgür Yazılım Felsefesi</span>
+		
+	GNU Projesi web sitesinde bulunan "felsefe" kategorisi altında
+	"Özgür Yazılım Tanımı"<sup><a href="#ref-3" style="text-decoration:none;">[3]</a></sup> sayfası içeriğinden ve yine aynı 
+	kategori altındaki diğer sayfalara kısaca yönlendirmelerden 
+	oluşur.
+	
+<span class="h3"><a class="selflink" name="section-1.2" href="#section-1.2">1.2</a>.   Özgür Lisanslar</span>
+	
+	Özgür lisanlarla ilgili kısa bilgilendirme ve yönlendirmeler.<sup><a href="#ref-4" style="text-decoration:none;">[4]</a></sup> 
+		
+<span class="h3"><a class="selflink" name="section-1.3" href="#section-1.3">1.3</a>.   GNU Projesi ve GNU/Linux'un Kısa Tarihi</span>
+	
+	GNU Projesinin teknik ve sosyal bir hareket olarak başlangıcı, 
+	ardından Linux çekirdeğinin projeye dahil oluşu ve 
+	GNU/Linux'un oluşumu çerçevesinde kısa tarihi bilgilendirmeden 
+	oluşur.
+		
+	Not: Bu bölümde Linux ve GNU/Linux ayrımına dikkat edilmeli. 
+	Eğitimin devamında anlatılan araçlar, komut ve yapılar GNU 
+	Projesi'ne dahildir ve farklı çekirdekler üzerine 
+	yapılandırılmış dağıtımlar üzerinde de çalışmaktadırlar. 
+	Örneğin; Debian GNU/Hurd üzerinde aynı işlemler 
+	gerçekleştirilebilir. 
+
+<span class="h2"><a class="selflink" name="ceyrek-1.2" href="#ceyrek-1.2">2</a>.  Çeyrek</span>
+
+<span class="h3"><a class="selflink" name="section-1.4" href="#section-1.4">1.4</a>.   Dağıtımlar, Pencere Yöneticileri ve Masaüstü Ortamları</span>
+	
+<span class="h3"><a class="selflink" name="section-1.4.1" href="#section-1.4.1">1.4.1</a>.   Dağıtımlar</span>
+			
+		Giriş seviyesinde "Dağıtım" kavramının anlatımı.
+		FSF'nin önerdiği dağımtımlar<sup><a href="#ref-5" style="text-decoration:none;">[5]</a></sup> ve bunların diğerlerinden 
+		farkları ile birlikte masaüstü ve sunucular üzerinde sık 
+		kullanılan diğer dağıtımlara dair bilgilendirme.
+			
+<span class="h3"><a class="selflink" name="section-1.4.2" href="#section-1.4.2">1.4.2</a>.   Pencere Yöneticileri ve Masaüstü Ortamları</span>
+		
+		Bu iki kavramın birbirinden farkı, sık kullanılan pencere 
+		yöneticileri ve masaüstü ortamları, tercih nedenleri, 
+		geliştirilme aşamaları hakkında bilgilendirme.
+			
+<span class="h3"><a class="selflink" name="section-1.4.3" href="#section-1.4.3">1.4.3</a>.   Paket Yöneticileri</span>
+	
+	"Paket", "paket yöneticileri", "depo" gibi kavramların tanımı, 
+	bilinen paket yöneticileri ve bu paket yöneticilerinin 
+	dağıtımlarla ilgisi vs. genel anlamda bilgilendirme. 
+	
+	Not: İleri aşamadaki "paket yönetim sistemleri" başlığında 
+	teknik aşamalarla ilgili detaylı bilgi verilmek üzere bu bölüm 
+	tanıtım için ayrılmıştır.
+
+<span class="h2"><a class="selflink" name="ceyrek-1.3" href="#ceyrek-1.3">3</a>.  Çeyrek</span>
+
+<span class="h3"><a class="selflink" name="section-1.5" href="#section-1.5">1.5</a>.   Komut Yapısı</span> 
+	
+	"'Kabuk' nedir, ne işe yarar?" sorusunun ayrıntılı cevabı ile 
+	birlikte sık kullanılan kabuklarla ilgili kısa bilgilendirme. 
+	(bash, sh, zsh, etc.)
+		
+	Komutların ekseriyetinin uyduğu standartlar ve geleneksel 
+	yapılar(örn. komut [seçenek ] {parametre}); büyük-küçük harfin 
+	önemi, bazı özel karakterler anlamları-ilişkileri 
+	("/" karakterinin ayraç oluşu; "*", "?","[]" karakterlerinin 
+	anlamları/kullanım biçimleri, etc.), parametrelerin kullanımı, 
+	temel öncelikleri ayırt etme, "-", "--" karakterleri ve 
+	parametre ilişkisi gibi "komutların sözdizimi" ve 
+	"dosya - dizinleri oluştururken veya onlarla ilgili işlem 
+	yaparken dikkat edilecekler" başlıklarına dahil olabilecek 
+	bilgiler.
+		
+<span class="h3"><a class="selflink" name="section-1.6" href="#section-1.6">1.6</a>.   Dosya ve Dizin Yapısı - Hiyerarşi</span>
+	
+	Dosya ve dizinler adlandırılma aşamaları (gizli dosya, 
+	karakter sınırlaması, arama, silme vb. işlemlerde fayda 
+	sağlayacak isimlendirme önerileri, etc.) ve dosya tipleri**
+	
+	**	Genel : "sıradan dosyalar" - "aygıt dosyaları"
+		Özel  : metin dosyları, çalıştırılabilir dosyalar, etc.
+	
+<span class="h3"><a class="selflink" name="section-1.6.1" href="#section-1.6.1">1.6.1</a>.   Temel Komutlara Giriş</span>
+		 
+		cd, ls, pwd, mkdir, file komutlarının anlamları ve bölümü 
+		işleyebilecek seviyede kullanımı. 
+			
+		Kök dizinin ve altındaki öntanımlı her sistem dizinin ayrıntılı
+		işlevleri.  
+
+<span class="h2"><a class="selflink" name="ceyrek-1.4" href="#ceyrek-1.4">4</a>.  Çeyrek</span>
+
+<span class="h3"><a class="selflink" name="section-1.7" href="#section-1.7">1.7</a>.   Temel Komutlar</span>
+	
+	man, help, info, pwd, cd, mkdir, touch, ls, mv, rm, cp, clear, 
+	exit, who, finger, date, cat, echo, stat, dd, file, free, df, 
+	halt, poweroff, reboot, shutdown komutlarının anlam, işlev ve 
+	başlangıç-orta seviye kullanım örnekleri ve varsa çıktılarının 
+	anlamları.
+
+<hr class='noprint' style='width: 96ex;' align='left'/><!--NewPage--><pre class='newpage'><a name="page-2" id="page-2" href="#page-2" class="invisible"> </a>
+
+<span class="h2"><a class="selflink" name="section-2" href="#section-2">2</a>.  Gün</span>
+
+<span class="h2"><a class="selflink" name="ceyrek-2.1" href="#ceyrek-2.1">1</a>.  Çeyrek</span>
+
+<span class="h3"><a class="selflink" name="section-2.1" href="#section-2.1">2.1</a>.   Temel Komutlar</span>
+		
+	1. Gün 4. Çeyrek içeriği devamı
+		
+<span class="h3"><a class="selflink" name="section-2.2" href="#section-2.2">2.2</a>.   Mutlak Yol - Bağıl Yol</span>
+		
+	Mutlak Yol (Absolute Path) ve Bağıl Yol (Relative Path) 
+	kavramlarının anlamları, açıklanması ve örneklendirilmesi.
+		
+<span class="h3"><a class="selflink" name="section-2.3" href="#section-2.3">2.3</a>.   Sembolik ve Sabit Bağlantılar</span>
+	
+	"Bağlama", "Sembolik Bağlantı", "Sabit Bağlantı" kavramlarının 
+	açıklanması, işlev ve yararlarının anlatılması. 
+		
+	Başlangıç seviyesinde "ln" komutunun söz dizimi, işlev ve 
+	kullanım örnekleri.
+
+<span class="h2"><a class="selflink" name="ceyrek-2.2" href="#ceyrek-2.2">2</a>.  Çeyrek</span>	
+
+<span class="h3"><a class="selflink" name="section-2.4" href="#section-2.4">2.4</a>.   Kullanıcı Hesapları - Grupları ve Erişim Hakları</span> 
+		
+<span class="h3"><a class="selflink" name="section-2.4.1" href="#section-2.4.1">2.4.1</a>.   Kullanıcı Hesapları - Grupları</span> 	
+		
+		Kullanıcı hesapları başlığı altında: 
+		Ekleme, parola atama, silme, listeleme, grup oluşturma, gruba 
+		ekleme-çıkarma, vs. işlemler ve ilgili komutların örnekleri
+		
+		"passwd" ve "shadow" dosya yapıları
+		
+		Kullanıcı ve gruplara ait kısa bilgi çıktılarını okuma 
+		
+<span class="h3"><a class="selflink" name="section-2.4.2" href="#section-2.4.2">2.4.2</a>.   Erişim Hakları</span>
+			
+		Erişim hakkı çeşitleri, anlamları ve listelenen erişim 
+		hakkı çıktılarının okunması.
+			
+		Kullanıcı tabanlı ve dosya tabanlı erişim hakkı tanım ve 
+		ayrımları.
+			
+		"chmod" ve "chown" komutlarının sözdizimleri ve kullanım 
+		örnekleri ile birlikte detaylı anlatımı/uygulanması.
+	
+<span class="h2"><a class="selflink" name="ceyrek-2.3" href="#ceyrek-2.3">3</a>.  Çeyrek</span>
+
+<span class="h3"><a class="selflink" name="section-2.5" href="#section-2.5">2.5</a>.   Arşivleme ve Sıkıştırma İşlemleri</span> 
+	
+	"Arşivleme" ve "sıkıştırma" kavramlarının açıklanması. 
+		
+<span class="h3"><a class="selflink" name="section-2.5.1" href="#section-2.5.1">2.5.1</a>.   Arşivleme</span>
+			
+		"tar" komutu ve parametreleri ile ilgili detaylı açıklama, 
+		parametrelerin işlevleri ile ilgili örnekler (arşivleme, 
+		arşivden çıkarma, mevcut arşive yeni dosya ekleme, etc. )
+			
+<span class="h3"><a class="selflink" name="section-2.5.2" href="#section-2.5.2">2.5.2</a>.   Sıkıştırma</span> 
+		
+		"gzip", "bzip2", "zip" komut, uzantı ve işlevlerinin 
+		anlatımı. Sıkıştırma-açma işlemleri ile ilgili örnekler.
+						
+<span class="h3"><a class="selflink" name="section-2.5.3" href="#section-2.5.1">2.5.3</a>.   Arşivleme ve Sıkıştırma</span>
+		
+		Arşivleme ve sıkıştırma işlemlerinin birlikte kullanımı.
+					
+<span class="h2"><a class="selflink" name="ceyrek-2.4" href="#ceyrek-2.4">4</a>.  Çeyrek</span>
+		
+<span class="h3"><a class="selflink" name="section-2.6" href="#section-2.6">2.6</a>.   Bağlama İşlemi</span> 
+	
+	"mount" ve "umount" işlemleri. 
+		
+	Dosya sistemleri ile ilgili temel bilgiler(giriş seviyesi).
+	
+<span class="h3"><a class="selflink" name="section-2.7" href="#section-2.7">2.7</a>.   GNU Nano</span>
+			
+	GNU Nano editörünün kullanımı. 	
+
+<hr class='noprint' style='width: 96ex;' align='left'/><!--NewPage--><pre class='newpage'><a name="page-2" id="page-2" href="#page-2" class="invisible"> </a>
+
+<span class="h2"><a class="selflink" name="section-3" href="#section-3">3</a>.  Gün</span>
+
+<span class="h2"><a class="selflink" name="ceyrek-3.1" href="#ceyrek-3.1">1</a>.  Çeyrek</span>
+
+<span class="h3"><a class="selflink" name="section-3.1" href="#section-3.1">3.1</a>.   Süreçler ve Yönetimleri</span> 
+	
+	Süreçlerin çalışma prensiplerinin anlatımı. 
+	
+<span class="h3"><a class="selflink" name="section-3.1.1" href="#section-3.1.1">3.1.1</a>.   Süreçlerin Görüntülenmesi</span> 
+	
+		"ps", "top" ve "fuser" araçlarının kullanımı ve 
+		çıktılarının okunması. 
+	
+<span class="h3"><a class="selflink" name="section-3.1.2" href="#section-3.1.2">3.1.2</a>.   Süreçlerin Arkaplanda Çalıştırılması</span>
+	
+		Süreci arkaplana atma, "jobs", "bg", "fg" komutlarının 
+		kullanım örnekleri.
+		
+<span class="h3"><a class="selflink" name="section-3.1.3" href="#section-3.1.3">3.1.3</a>.   Süreçlerin Sona Erdirilmesi</span>
+	
+		"kill" komutu ve türevlerinin anlatımı.
+		
+<span class="h3"><a class="selflink" name="section-3.2" href="#section-3.2">3.2</a>.   Kaynak Kodun Derlenmesi</span> 
+	
+	Seçilen basit bir programın kaynak kodu derlenerek yüklenmesi 
+	işlemi.
+			
+<span class="h2"><a class="selflink" name="ceyrek-3.2" href="#ceyrek-3.2">2</a>.  Çeyrek</span>
+	
+<span class="h3"><a class="selflink" name="section-3.3" href="#section-3.3">3.3</a>.   Paketler ve Paket Yönetim Sistemi</span>
+	
+<span class="h3"><a class="selflink" name="section-3.3.1" href="#section-3.3.1">3.3.1</a>.   Paketler</span>	 
+		
+		"'Paket' kavramı nedir, ne işe yarar, çeşitleri nelerdir?" 
+		gibi soruların cevaplarını oluşturacak genel bilgilendirme.
+			
+		Paketi doğrulama, kurma - kaldırma, içerdiği dosyaları ve 
+		bir dosyanın ait olduğu paketi görüntüleme, güncelleme, 
+		yükseltme, sistedeki paket sayısını görüntüleme, etc. 
+		işlemlerinin örneklendirilmesi. 
+			
+<span class="h3"><a class="selflink" name="section-3.3.2" href="#section-3.3.2">3.3.2</a>.   Paket Yönetim Aracı</span>	 
+		
+		"Depo" kavramının anlatımı ve giriş seviyesinde ilgili 
+		işlemler. (örn. depo ekleme-kaldırma)
+			
+		"3.2.1 Paketler" başlığına ait içeriğin paket yönetim 
+		aracı ile örneklendirilmesi ve paket arama işlemi. 
+			
+		Farklı paket yöneticileri ve dağıtım bağlantıları ile 
+		ilgili genel bilgilendirme.
+
+<span class="h3"><a class="selflink" name="section-3.4" href="#section-3.4">3.4</a>.   Güncelleme - Yükseltme - Yedekleme</span> 
+	
+	Sistem versiyonunun ve çekirdeğin güncellenmesi, yükseltilmesi 
+	ve bu işlemlerin geri alınması.
+		
+	Yedekleme işlemine ve ilgili araçların kullanımına dair 
+	örnekler. 
+		
+<span class="h3"><a class="selflink" name="section-3.5" href="#section-3.5">3.5</a>.   Yönlendirme İşlemi</span>
+		
+	Belirli hata ya da çeşitli çıktıların farklı bir dosyaya 
+	yazdırılması uygulaması ve konu hakkında bilgilendirme.
+		
+	(örn. bir çıktının /dev/null'a gönderilmesi, vs.)   
+
+<span class="h2"><a class="selflink" name="ceyrek-3.3" href="#ceyrek-3.3">3</a>.  Çeyrek</span>
+
+<span class="h3"><a class="selflink" name="section-3.6" href="#section-3.6">3.6</a>.   Zamanlanmış Görevler</span>
+	 
+	"Zamanlanmış Görev" tanımı, crontab'ın düzenlenmesi, cron 
+	girdisi oluşturma - kaldırma - listeleme, cron girdilerinin 
+	yazım biçimi konularının örnek uygulamaları. 
+		
+	"watch" komutunun kullanım örnekleri. 
+
+<span class="h3"><a class="selflink" name="section-3.7" href="#section-3.7">3.7</a>.   Arama ve Tarama İşlemleri</span> 
+	
+	find, locate, grep, whereis, which, less, more, tail, head, 
+	wc, sort komu/araçlarının işlevleri ve kullanım örnekleri.
+						
+<span class="h2"><a class="selflink" name="ceyrek-3.4" href="#ceyrek-3.4">4</a>.  Çeyrek</span>
+	
+<span class="h3"><a class="selflink" name="section-3.8" href="#section-3.8">3.8</a>.   Log Dosyaları</span>
+		
+	Masaüstü kullanıcısının ihtiyacı olacak biçimde log 
+	dosyalarının okunması.
+	
+<span class="h3"><a class="selflink" name="section-3.9" href="#section-3.9">3.9</a>.   Takma Adlar (Alias)</span>
+
+	"Takma ad" kavramı, işlevi ile ilgili bilgilendirme.
+		
+	Takma ad atama, kaldırma örnek ugulamaları.
+
+<hr class='noprint' style='width: 96ex;' align='left'/><!--NewPage--><pre class='newpage'><a name="page-2" id="page-2" href="#page-2" class="invisible"> </a>
+
+<span class="h2"><a class="selflink" name="section-4" href="#section-4">4</a>.  Gün</span>	
+
+<span class="h2"><a class="selflink" name="ceyrek-4.1" href="#ceyrek-4.1">1</a>.  Çeyrek</span>
+		
+<span class="h3"><a class="selflink" name="section-4.1" href="#section-4.1">4.1</a>.   Özel Kabuk Değişkenleri</span> 
+	
+	Özel kabul değişkenlerinin örnekleri ve kabuk işlemlerindeki 
+	yerleri ile ilgili temel seviyede bilgilendirme.
+		
+	Bu değişkenlerin anlamları, basit örnekler ve uygulamalar.
+		
+	(örn. export, printenv, PATH, LOGNAME, TERM, EDITOR, etc.)	
+	
+<span class="h3"><a class="selflink" name="section-4.2" href="#section-4.2">4.2</a>.   Örnek Bir Kabuk İşlemi</span> 
+		
+	Takma adları ve özel kabuk değişkenlerini kullanarak ".bashrc" 
+	üzerinde örnek kalıcı bir işlemin uygulaması.	
+
+<span class="h2"><a class="selflink" name="ceyrek-4.2" href="#ceyrek-4.2">2</a>.  Çeyrek</span>
+					
+<span class="h3"><a class="selflink" name="section-4.3" href="#section-4.3">4.3</a>.   Sed</span> 
+		
+	"Sed nedir?" sorusuna cevap olabilecek bilgilendirme. 
+			
+	Sed aracının sözdizimi ve özel karakterlerin anlamları. 
+	("*", "^", "$","\","[]", "s" ve "g" işlemcisi, etc.) 
+			
+	Sed'in kullanım örnekleri. (dosya içerisindeki; 
+	tüm küçük harfleri büyük harfe çevirme, her satır 
+	başındaki boşluğu kaldırma, belirli bir düzene göre 
+	sıralanmış içerik düzenini ters çevirme, etc. işlem 
+	örnekleri)
+
+	Uzun sed komutlarını ".sed" dosyası haline getirme ve 
+	çalıştırma. 
+
+<span class="h2"><a class="selflink" name="ceyrek-4.3" href="#ceyrek-4.3">3</a>.  Çeyrek</span>
+
+<span class="h3"><a class="selflink" name="section-4.4" href="#section-4.4">4.4</a>.   Komut Satırının Gücü</span> 
+		
+	Kullanıcıların günlük hayatta yaptığı işleri komut 
+	satırından yaptıklarında kazanacakları hız ve işlevselliği 
+	gösteren örnekler.
+		
+	(örn. tek satırlık komut ile; birden çok görselin 
+	boyutlandırılması, bir pdf içerisindeki görsellerin 
+	ayıklanması veya matematiksel işlemlerin yapılması, çalışma 
+	hatalarının eşzamanlı görüntülenmesi, etc. )
+
+<span class="h2"><a class="selflink" name="ceyrek-4.4" href="#ceyrek-4.4">4</a>.  Çeyrek</span>
+
+<span class="h3"><a class="selflink" name="section-4.5" href="#section-4.5">4.5</a>.   İpuçları</span> 
+	
+	"Topluluğun günlük kullanımları sırasında yapmak istedikleri" 
+	sorusuna gelecek cevaplar üzerinden araç tanıtımları.
+	
+	(örn. GNU Wget ya da GNU Screen gibi araçlar, komut 
+	satırının renklendirilmesi gibi yöntemler, etc.)
+
+
+<hr class='noprint' style='width: 96ex;' align='left'/><!--NewPage--><pre class='newpage'><a name="page-2" id="page-2" href="#page-2" class="invisible"> </a>
+
+<span class="h2"><a class="selflink" name="referans" href="#referans">Referanslar</a></span>	
+
+	<a class="selflink" name="ref-1" href="#ref-1">[1]</a>:<a href="http://distrowatch.com/table.php?distribution=debian">http://distrowatch.com/table.php?distribution=debian</a>
+	<a class="selflink" name="ref-2" href="#ref-2">[2]</a>:<a href="http://distrowatch.com/search.php?basedon=Debian">http://distrowatch.com/search.php?basedon=Debian</a>
+	<a class="selflink" name="ref-3" href="#ref-3">[3]</a>:<a href="https://gnu.org/philosophy/free-sw.tr.html">https://gnu.org/philosophy/free-sw.tr.html</a>
+	<a class="selflink" name="ref-4" href="#ref-4">[4]</a>:<a href="http://ozgurlisanslar.org.tr/">http://ozgurlisanslar.org.tr/</a>
+	<a class="selflink" name="ref-5" href="#ref-5">[5]</a>:<a href="https://www.gnu.org/distros/free-distros.html">https://www.gnu.org/distros/free-distros.html</a>
+	
+</pre><br />
+  </div>
+</body>
+</html>
